@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> complements = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> complements = new HashMap<>();
         int[] sumIndices = new int[2];
         
         for (int i = 0; i < nums.length; i++) {

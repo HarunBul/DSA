@@ -23,7 +23,7 @@
 
 class Solution {
     public char slowestKey(int[] releaseTimes, String keysPressed) {
-        HashMap<Character, Integer> durations = new HashMap();
+        HashMap<Character, Integer> durations = new HashMap<>();
         char longestKey = ' ';
         int longestTime = 0;
         
@@ -57,3 +57,14 @@ class Solution {
         return longestKey;
     }
 }
+
+/*
+ * Notes:
+ * 
+ * Could have done this in a single pass over the array. This was my first idea
+ * but I've wanted to get more practice in using HashMaps in Java.
+ * 
+ * Could have also used an int[26] array instead of the HashMap to store key
+ * durations. Good to remember for problems involving the alphabet or otherwise
+ * fixed-length data in the future.
+ */
