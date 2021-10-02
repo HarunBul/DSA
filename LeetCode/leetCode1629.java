@@ -27,19 +27,21 @@ class Solution {
         char longestKey = ' ';
         int longestTime = 0;
         
-        for (int press = 0; press < keysPressed.length(); press++) {
+        // populate map of key-longestTime pairs
+        for (int i = 0; i < keysPressed.length(); i++) {
             // get current key and add to durations map if not yet present
-            char currentKey = keysPressed.charAt(press);
+            char currentKey = keysPressed.charAt(i);
             if (!durations.containsKey(currentKey)) {
-                durations.put(keysPressed.charAt(press), 0);
+                durations.put(keysPressed.charAt(i), 0);
             }
             
             // if key's latest time longer than previous longest, update map
             int currentDuration = durations.get(currentKey);
-            int newDuration = releaseTimes[press] - (press > 0 ? releaseTimes[press - 1] : 0);
+            int newDuration = releaseTimes[i] - (i > 0 ? releaseTimes[i - 1] : 0);
             durations.put(currentKey, Math.max(currentDuration, newDuration));
         }
         
+        // iterate through map and identify key with longest time
         for (Map.Entry entry : durations.entrySet()) {
             int currentTime = (int) entry.getValue();
             char currentKey = (char) entry.getKey();
