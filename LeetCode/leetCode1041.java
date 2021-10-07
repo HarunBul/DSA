@@ -23,7 +23,7 @@ class Solution {
             } else if (instructions.charAt(i) == 'R') {
                 degrees = (degrees + 90) % 360;
             } else {
-                switch (Math.abs(degrees) % 360) {
+                switch (Math.abs(degrees)) {
                     case 0:
                         y++;
                         break;
