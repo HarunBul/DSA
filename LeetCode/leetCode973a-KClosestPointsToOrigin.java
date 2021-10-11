@@ -34,6 +34,8 @@ class Solution {
 /**
  * Notes:
  * 
+ * When sorting a 2D array, a and b default to the 1D array "rows"
+ * 
  * Realized after submission I could've also skipped the for-loop and directly
  * returned via copyOfRange.
  * 
