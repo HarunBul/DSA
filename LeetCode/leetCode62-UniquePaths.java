@@ -12,18 +12,24 @@
  */
 
 class Solution {
-    public int maxProfit(int[] prices) {
-        int minSoFar = prices[0];
-        int maxProfit = 0;
-        for (int i = 0; i < prices.length; i++) {
-            if (prices[i] < minSoFar) {
-                minSoFar = prices[i];
-            }
-            if ( (prices[i] - minSoFar) > maxProfit ) {
-                maxProfit = prices[i] - minSoFar;
+    public int uniquePaths(int m, int n) {
+        // set up 2D array to store unique paths to reach any of m x n tiles
+        int[][] dp = new int[m][n];
+        
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                // if tile is on left or top edge of grid, it can only be reached 1 way
+                if (i == 0 || j == 0) {
+                    dp[i][j] = 1;
+                }
+                // for any other tile, paths = sum of ways to reach tiles above and left
+                else {
+                    dp[i][j] = dp[i-1][j] + dp[i][j-1];
+                }
             }
         }
-        return maxProfit;
+        // return unique paths to reach last tile
+        return dp[m - 1][n - 1];
     }
 }
 
