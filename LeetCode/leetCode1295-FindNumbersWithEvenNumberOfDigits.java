@@ -15,7 +15,6 @@ class Solution {
                 numDigits += 1;
             }
             if (numDigits % 2 == 0) evenNumDigits += 1;
-            numDigits = 0;
         }
         return evenNumDigits;
     }
